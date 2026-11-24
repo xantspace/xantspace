@@ -108,6 +108,14 @@ function NeedsAndTeacher() {
         </ul>
       </Card>
       <Card className="min-w-0 flex-[1_1_360px] p-card">
+        <img
+          src="/image1.png"
+          alt="Pleasant Johnson at a desk with a laptop"
+          width="515"
+          height="515"
+          loading="lazy"
+          className="mb-5 aspect-[4/3] w-full rounded-xl object-cover object-[50%_25%]"
+        />
         <h2 className="mb-4 text-h3">Learn from someone who's done it</h2>
         <p className="mb-3 text-muted">
           I'm <strong className="text-fg">Pleasant Johnson</strong>, a self-taught full-stack developer from
