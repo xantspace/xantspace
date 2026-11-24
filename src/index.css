@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0E0F12;
+  --color-surface: #17191E;
+  --color-line: #2A2D34;
+  --color-line-strong: #3A3D45;
+  --color-fg: #F2F2EE;
+  --color-muted: #C9CBD0;
+  --color-subtle: #A3A6AD;
+  --color-accent: #C6F432;
+  --color-accent-hover: #E2FF8A;
+
+  --color-danger: #F87171;
+  --color-warn: #FDBA74;
+
+  /* Fluid sizes: each grows smoothly from small phones (~360px) up to desktop (~1280px).
+     clamp(smallest, scaling with screen width, largest) */
+  --text-body: clamp(0.9375rem, 0.9rem + 0.2vw, 1rem);       /* 15 → 16px */
+  --text-large: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);     /* 16 → 18px */
+  --text-lead: clamp(1.0625rem, 0.98rem + 0.4vw, 1.25rem);   /* 17 → 20px */
+  --text-h3: clamp(1.375rem, 1.2rem + 0.8vw, 1.75rem);       /* 22 → 28px */
+  --text-title: clamp(1.5rem, 1.25rem + 1.1vw, 2rem);        /* 24 → 32px */
+  --text-h2: clamp(1.75rem, 1.35rem + 1.8vw, 2.5rem);        /* 28 → 40px */
+  --text-display: clamp(2.125rem, 1.4rem + 3.2vw, 3.75rem);  /* 34 → 60px */
+  --text-price: clamp(2.75rem, 1.9rem + 3.8vw, 4.5rem);      /* 44 → 72px */
+
+  --spacing-gutter: clamp(1rem, 4vw, 1.5rem);      /* page side padding: 16 → 24px */
+  --spacing-section: clamp(2.5rem, 7vw, 4rem);     /* space between sections: 40 → 64px */
+  --spacing-card: clamp(1.25rem, 5vw, 2rem);       /* padding inside big cards: 20 → 32px */
+  --spacing-card-sm: clamp(1.125rem, 4.5vw, 1.5rem); /* padding inside small cards: 18 → 24px */
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+
+  --animate-fade-up: fade-up 0.5s ease-out both;
+  --animate-shine: shine 3s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes shine {
+    0% { transform: translateX(-150%) skewX(-20deg); }
+    50%, 100% { transform: translateX(350%) skewX(-20deg); }
+  }
+}
+
+/* Rotating accent border for the signup card */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes border-spin {
+  to { --angle: 360deg; }
+}
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@layer components {
+  .glow-card {
+    position: relative;
+    border-radius: 24px;
+    background: var(--color-surface);
+    box-shadow: 0 0 60px -20px color-mix(in srgb, var(--color-accent) 35%, transparent);
+  }
+  .glow-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    padding: 1.5px;
+    border-radius: inherit;
+    background: conic-gradient(
+      from var(--angle),
+      var(--color-line) 0deg 220deg,
+      var(--color-accent) 300deg,
+      var(--color-line) 360deg
+    );
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+    animation: border-spin 4s linear infinite;
+    pointer-events: none;
+  }
+  .check-circle {
+    stroke-dasharray: 151;
+    stroke-dashoffset: 151;
+    animation: draw 0.6s ease-out forwards;
+  }
+  .check-mark {
+    stroke-dasharray: 36;
+    stroke-dashoffset: 36;
+    animation: draw 0.4s 0.5s ease-out forwards;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-ink text-fg font-sans text-body leading-relaxed antialiased;
+  }
+  h1, h2, h3 {
+    @apply font-display;
+    line-height: 1.2;
+  }
+}
