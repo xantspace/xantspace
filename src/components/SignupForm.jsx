@@ -82,7 +82,7 @@ function Success({ name, payUrl, paying, onPay }) {
       >
         {paying ? (
           <>
-            <Spinner /> Opening Paystack…
+            <Spinner /> Processing…
           </>
         ) : (
           <>LOCK IN NOW!</>
