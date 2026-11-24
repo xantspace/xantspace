@@ -107,6 +107,11 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Keeps anchor jumps (#build, #pay) from landing under the pinned header */
+    scroll-padding-top: 4.75rem;
+  }
+  @media (min-width: 40rem) {
+    html { scroll-padding-top: 5.75rem; }
   }
   body {
     @apply bg-ink text-fg font-sans text-body leading-relaxed antialiased;

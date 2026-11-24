@@ -153,7 +153,7 @@ export default function HeroVideo() {
   }
 
   const frameClass = mini
-    ? 'fixed top-3 right-3 z-50 aspect-[9/16] w-28 sm:top-4 sm:right-4 sm:w-40 md:w-52 rounded-2xl shadow-2xl shadow-black/60'
+    ? 'fixed top-[76px] right-3 z-50 aspect-[9/16] w-28 sm:top-[92px] sm:right-4 sm:w-40 md:w-52 rounded-2xl shadow-2xl shadow-black/60'
     : 'absolute inset-0 rounded-[20px]'
 
   return (

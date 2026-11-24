@@ -14,13 +14,17 @@ import {
 
 function Header() {
   return (
-    <header className="mx-auto flex max-w-[1200px] items-center justify-between gap-3 px-gutter py-4 sm:py-6">
-      <div className="whitespace-nowrap font-display text-[clamp(1rem,0.9rem+0.5vw,1.25rem)] font-bold">
-        XantSpace <span className="font-medium text-subtle max-sm:hidden">/ Build With AI</span>
+    // Pinned to the top. Its height (h-16 / sm:h-20) is matched by scroll-padding in index.css
+    // and by the mini video player's top offset in HeroVideo.jsx; change all three together.
+    <header className="sticky top-0 z-40 border-b border-line/60 bg-ink/85 backdrop-blur-md">
+      <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between gap-3 px-gutter sm:h-20">
+        <a href="#" className="whitespace-nowrap font-display text-[clamp(1rem,0.9rem+0.5vw,1.25rem)] font-bold text-fg no-underline">
+          XantSpace <span className="font-medium text-subtle max-sm:hidden">/ Build With AI</span>
+        </a>
+        <Button href={SIGNUP_HREF} size="sm" className="shrink-0">
+          Pay {PRICE}
+        </Button>
       </div>
-      <Button href={SIGNUP_HREF} size="sm" className="shrink-0">
-        Pay {PRICE}
-      </Button>
     </header>
   )
 }
