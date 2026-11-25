@@ -70,6 +70,11 @@ function WhatYoullBuild() {
           </Card>
         ))}
       </div>
+      <div className="mt-6 flex sm:mt-8">
+        <Button href="#/bonus" variant="outline" className="max-sm:w-full gap-2">
+          <span className="text-accent">+</span> Add a bonus: see the design lessons →
+        </Button>
+      </div>
     </Section>
   )
 }

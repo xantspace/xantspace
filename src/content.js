@@ -83,3 +83,55 @@ export const faqs = [
     a: "Yes. It's your app, so you're free to sell it to shortlet and apartment owners.",
   },
 ]
+
+// Bonus page (#/bonus): design skills that come with the class.
+export const bonus = [
+  {
+    tag: 'UI/UX',
+    title: 'UI/UX fundamentals',
+    body: 'Why some apps feel easy and others feel confusing. User flows, visual hierarchy and how to make the next step obvious.',
+    points: ['User flows and wireframes', 'Visual hierarchy', 'Designing for trust (payments, bookings)'],
+  },
+  {
+    tag: 'CSS',
+    title: 'CSS that makes sense',
+    body: 'The box model, Flexbox and Grid, explained so you can read and fix what AI writes instead of guessing.',
+    points: ['Box model and spacing', 'Flexbox vs Grid', 'Tailwind CSS in practice'],
+  },
+  {
+    tag: 'Responsive',
+    title: 'Responsive design',
+    body: 'Make one app look right on a small Android phone, an iPhone and a laptop, without writing it three times.',
+    points: ['Mobile-first layouts', 'Fluid text and spacing', 'Testing on real devices'],
+  },
+  {
+    tag: 'Color & type',
+    title: 'Color and typography',
+    body: 'Pick colors and fonts that look premium. The small choices that separate a "student project" from a real product.',
+    points: ['Building a color palette', 'Font pairing and type scale', 'Contrast that stays readable'],
+  },
+  {
+    tag: 'Motion',
+    title: 'Animations and micro-interactions',
+    body: 'Buttons that respond, cards that spring, loaders that reassure. Motion that guides the user instead of distracting them.',
+    points: ['Hover, tap and focus states', 'Spring animations', 'Loading and success states'],
+  },
+  {
+    tag: 'Accessibility',
+    title: 'Accessibility basics',
+    body: 'Build apps everyone can use, including people on slow phones, with poor eyesight or using a keyboard.',
+    points: ['Readable sizes and contrast', 'Labels and form errors', 'Reduced-motion support'],
+  },
+  {
+    tag: 'Design to code',
+    title: 'From design to code with AI',
+    body: 'Turn a screenshot or a Figma design into working code with AI, then polish it until it matches.',
+    points: ['Prompting AI for layouts', 'Reusable components', 'Spotting and fixing AI mistakes'],
+  },
+  {
+    tag: 'Launch',
+    title: 'Launch polish',
+    body: 'The finishing touches clients notice: fast loading, a good link preview on WhatsApp and showing up on Google.',
+    points: ['Image and speed optimisation', 'SEO and link previews', 'Custom domain setup'],
+  },
+]

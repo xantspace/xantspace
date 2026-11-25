@@ -5,6 +5,7 @@ import './index.css'
 import App from './App.jsx'
 import SignupPage from './SignupPage.jsx'
 import WelcomePage from './WelcomePage.jsx'
+import BonusPage from './BonusPage.jsx'
 
 // Minimal hash routing: "#/signup" shows the signup page, anything else the landing page.
 function Root() {
@@ -17,19 +18,22 @@ function Root() {
   }, [])
 
   const isSignup = hash === '#/signup'
+  const isBonus = hash === '#/bonus'
 
   useEffect(() => {
     // After switching pages, jump to the in-page anchor (e.g. #pay) or the top.
-    const target = !isSignup && hash.length > 1 && document.getElementById(hash.slice(1))
+    const target = !hash.startsWith('#/') && hash.length > 1 && document.getElementById(hash.slice(1))
     if (target) target.scrollIntoView()
     else window.scrollTo(0, 0)
-  }, [hash, isSignup])
+  }, [hash])
 
   // Paystack sends people back to "/?reference=..." after paying.
   const reference = new URLSearchParams(window.location.search).get('reference')
   if (reference) return <WelcomePage reference={reference} />
 
-  return isSignup ? <SignupPage /> : <App />
+  if (isSignup) return <SignupPage />
+  if (isBonus) return <BonusPage />
+  return <App />
 }
 
 createRoot(document.getElementById('root')).render(
