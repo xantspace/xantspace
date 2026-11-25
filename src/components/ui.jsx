@@ -75,3 +75,11 @@ export function Card({ className = '', children }) {
     <div className={`rounded-2xl border border-line bg-surface ${className}`}>{children}</div>
   )
 }
+
+export function Footer() {
+  return (
+    <footer className="border-t border-line px-gutter py-8 text-center text-sm text-subtle">
+      Build With AI by XantSpace.
+    </footer>
+  )
+}

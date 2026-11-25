@@ -1,4 +1,4 @@
-import { Button, Card, Eyebrow, Section } from './components/ui.jsx'
+import { Button, Card, Eyebrow, Footer, Section } from './components/ui.jsx'
 import HeroVideo from './components/HeroVideo.jsx'
 import {
   PRICE,
@@ -174,14 +174,6 @@ function Faq() {
         ))}
       </div>
     </Section>
-  )
-}
-
-function Footer() {
-  return (
-    <footer className="border-t border-line px-gutter py-8 text-center text-sm text-subtle">
-      Build With AI by XantSpace.
-    </footer>
   )
 }
 
